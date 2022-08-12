@@ -1,0 +1,24 @@
+{
+    "id": "A3BA8968",
+    "path": "~/Documents/lab-env/calibrated_outcome/code/gee_mo.R",
+    "project_path": "code/gee_mo.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1660294901322.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1660294754,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1660294754,
+    "read_only": false,
+    "read_only_alternatives": []
+}
