@@ -3,7 +3,7 @@
     "path": "~/Documents/lab-env/calibrated_outcome/code/co-By-sesp-logit.R",
     "project_path": "code/co-By-sesp-logit.R",
     "type": "r_source",
-    "hash": "2080395154",
+    "hash": "796396234",
     "contents": "",
     "dirty": false,
     "created": 1660294902169.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,3",
+        "cursorPosition": "19,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1660294914,
+    "lastKnownWriteTime": 1660295237,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1660294914429,
+    "last_content_update": 1660295237512,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -17,7 +17,6 @@ rm(list = ls(all.names = TRUE))　
 
 # set.seed(12345)
 # サンプルサイズ
-# d
 n = 1000
 
 # シミュレーションの繰り返し数
