@@ -136,7 +136,7 @@ sigmoid <- function(x){
   
   # 簡単なケース
   # SEx <- rep(1.0, n); SPx <- rep(1.0, n);
-  SEx <- rep(0.5, n); SPx <- rep(0.55, n);
+  SEx <- rep(0.9, n); SPx <- rep(0.95, n);
   
   # SEx <- switch(miss_type,
   #              "min" = rep(0.7, n),
@@ -165,18 +165,23 @@ sigmoid <- function(x){
   # Naive estimate
   ml <- glm(Y_star~XX, family=binomial)
   
-  # Corrected Outcome
-  CO <- (Y_star - (1-SPx)) / (SEx + SPx -1)
   
   # 推定方程式
-  fn <- function(X, co, beta){
+  fn <- function(X, Y, beta){
+    # Corrected Outcome
+    # co <- (Y - (1-SPx)) / (SEx + SPx -1)
+    
     # t(X) %*% (co - sigmoid(X %*% beta))
-    t(X) %*% (sigmoid(X %*% beta)*(1-sigmoid(X %*% beta))*(co - sigmoid(X %*% beta)))
+    # t(X) %*% (sigmoid(X %*% beta)*(1-sigmoid(X %*% beta))*(co - sigmoid(X %*% beta)))
+    
+    pi <- sigmoid(X %*% beta)
+    t(X) %*% ( (SEx + SPx - 1)*(Y - ((1-pi)*(1-SPx)+ pi*SEx)) )
+    
   }
   
   XX_1 <- cbind(rep(1,n), XX)
   
-  fn1 <- function(beta) fn(XX_1, CO, beta)
+  fn1 <- function(beta) fn(XX_1, Y_star, beta)
   ans <- nleqslv(c(0.1, 0.1, 0.1), fn1)
   
   ### 結果の保存
@@ -218,10 +223,10 @@ result_df <- temp_df %>% tbl_summary(by=method, digits = everything()~2) %>%
   modify_header(label="Odds ratio") %>% 
   modify_footnote(label ='真値:(0.2, 0.7, 0.7)') %>% 
   # modify_caption("SE, SP = ( 0.8, 0.85 )の時")
-  modify_caption("SE, SP = ( 0.5, 0.55 )の時")
+  modify_caption("SE, SP = ( 0.9, 0.95 )の時")
 
 ## テーブル出力----
-result_df %>% as_gt() %>% gtsave("./results/table/0808/res_table05055.png")
+# result_df %>% as_gt() %>% gtsave("./results/table/0819/res_table09095.png")
 
 
 ## アウトプット
